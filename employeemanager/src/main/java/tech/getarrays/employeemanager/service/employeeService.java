@@ -10,14 +10,16 @@ import tech.getarrays.employeemanager.model.Employee;
 import tech.getarrays.employeemanager.repositore.EmployeeRepo;
 
 @Service
-public class employeeService {
+public class EmployeeService {
+    
     private final EmployeeRepo employeeRepo;
-
+    
     @Autowired
-    public employeeService(EmployeeRepo employeeRepo) {
+    public EmployeeService(EmployeeRepo employeeRepo) {
         this.employeeRepo = employeeRepo;
     }
 
+   
     public Employee addEmployee(Employee employee) {
         employee.setEmployeeCode(UUID.randomUUID().toString());
         return employeeRepo.save(employee);
@@ -42,4 +44,5 @@ public class employeeService {
     public void deleteEmployee(Long id) {
         employeeRepo.deleteById(id);
     }
+
 }// end class
