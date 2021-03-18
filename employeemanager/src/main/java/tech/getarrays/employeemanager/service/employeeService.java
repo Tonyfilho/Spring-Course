@@ -33,12 +33,12 @@ public class EmployeeService {
         return employeeRepo.save(employee);
     }
 
-    public Long finEmployeeById(Long id) {
+    public Employee findEmployeeById(Long id) {
         // Podemos Usar employeeRepo.findById(id).get() para buscar os dados, Mas não
         // teremos a proteção OPTINAL
-        Employee myIdEmployee = employeeRepo.findById(id)
+        return employeeRepo.findById(id)
                 .orElseThrow(() -> new UserNotFoundException("no há Employee com id " + id));
-        return myIdEmployee.getId();
+        
     }
 
     public void deleteEmployee(Long id) {
