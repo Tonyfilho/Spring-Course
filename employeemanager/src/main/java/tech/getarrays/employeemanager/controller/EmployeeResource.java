@@ -28,6 +28,10 @@ public class EmployeeResource {
         this.employeeService = employeeService;
     }
 
+    @GetMapping("/") 
+    public ResponseEntity<List<Employee>> all(){
+        return getAllEmployees();
+    }
     
     @GetMapping("/all")
     public ResponseEntity<List<Employee>> getAllEmployees () {
