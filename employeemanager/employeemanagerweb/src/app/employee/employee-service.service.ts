@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { EmployeeInterface } from './../../assets/common/employee';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -7,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EmployeeServiceService {
- private apiServerUrl = '';
+ private apiServerUrl = environment.apiBaseUrl;
   constructor(private http: HttpClient) { };
 
   public getEmployees(): Observable<EmployeeInterface[]> {
@@ -26,7 +27,7 @@ export class EmployeeServiceService {
    return this.http.delete<void>(`${this.apiServerUrl}/employee/delete/${employeeId}`);
   }
 
-  
+
 
 
 
