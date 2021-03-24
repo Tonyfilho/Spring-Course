@@ -25,5 +25,7 @@ export class EmployeeComponent implements OnInit {
         new HttpHeaderResponse().status;
       }
     );
+
   }
+
 } // end class
