@@ -2,7 +2,7 @@ import { EmployeeServiceService } from './employee-service.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeComponent } from './employee/employee.component';
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import { from } from 'rxjs';
 
 @NgModule({
@@ -12,4 +12,4 @@ import { from } from 'rxjs';
   providers: [EmployeeServiceService],
   exports: [EmployeeComponent]
 })
-export class EmployeeModule {}
+export class EmployeeModule { }

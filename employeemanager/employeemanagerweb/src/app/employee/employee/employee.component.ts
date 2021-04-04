@@ -11,7 +11,7 @@ import { HttpErrorResponse, HttpHeaderResponse } from '@angular/common/http';
 export class EmployeeComponent implements OnInit {
   public employeeList: EmployeeInterface[] = [];
 
-  constructor(private service: EmployeeServiceService) {}
+  constructor(private service: EmployeeServiceService) { }
 
   ngOnInit(): void {
     this.service.getEmployees().subscribe(
@@ -26,6 +26,32 @@ export class EmployeeComponent implements OnInit {
       }
     );
 
+  }
+
+  public onOpenModal(employee: EmployeeInterface, mode: string): void {
+    
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'add') {
+      button.setAttribute('data-toggle', '#addEmployeeModal');
+      console.log('dentro do add ');
+
+    }
+    if (mode === 'edit') {
+      button.setAttribute('data-toggle', '#updateEmployeeModal');
+      console.log('dentro do edit');
+
+    }
+    if (mode === 'delete') {
+      button.setAttribute('data-toggle', '#deleteEmployeeModal');
+      console.log('dentro do delete ');
+
+    }
+    container.appendChild(button);
+    button.click();
   }
 
 } // end class
